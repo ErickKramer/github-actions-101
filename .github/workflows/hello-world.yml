@@ -1,12 +1,11 @@
-name: learn-github-actions
+name: hello-world
 on: [push]
 jobs:
-  check-bats-version:
-    runs-on: ubuntu-latest
+  greetings:
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
+      - run: echo "Hello world"
+      - run: ls -la
+      - run: apt-get update && apt-get install cowsay
+      - run: /usr/games/cowsay -f /usr/share/cowsay/cows/turtle.cow hello
